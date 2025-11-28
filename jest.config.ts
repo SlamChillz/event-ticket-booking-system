@@ -17,6 +17,8 @@ const config: Config = {
   preset: 'ts-jest',
   testEnvironment: "jest-environment-node",
   setupFilesAfterEnv: ["./test/setup.ts"],
+  maxWorkers: 1,
+  globalTeardown: "./test/teardown.ts",
 };
 
 export default config;
