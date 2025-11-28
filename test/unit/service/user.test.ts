@@ -170,7 +170,7 @@ describe('UserService', () => {
 
     it('should handle errors during authentication', async () => {
       const error = new Error('Authentication failed');
-      userByNameMock.mockImplementationOnce(() => Promise.reject(error));
+      userByNameMock.mockRejectedValueOnce(error);
       const result = await userService.authenticate(username, password);
 
       expect(result).toEqual({

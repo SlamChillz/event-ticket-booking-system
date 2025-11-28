@@ -39,6 +39,9 @@ export class Booking {
 
   @AfterInsert()
   newBookingCacheNotification() {
-    cache.emit(EventTrigger.BOOK, this.id, this.replacing)
+    const eventId = this.event?.id;
+    if (eventId) {
+      cache.emit(EventTrigger.BOOK, eventId, this.replacing);
+    }
   }
 }

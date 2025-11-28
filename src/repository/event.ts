@@ -103,7 +103,7 @@ export default class EventRepository {
 				.leftJoinAndSelect('waitlist.user', 'user')
 				.leftJoinAndSelect('waitlist.event', 'event')
 				.where('waitlist.eventId = :eventId', { eventId })
-				.orderBy('waitlist.created_at', 'DESC')
+				.orderBy('waitlist.created_at', 'ASC')
 				.getOne();
 			if (nextInWaitlist) {
 				const newBooking = em.create(Booking, {
